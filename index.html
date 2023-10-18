@@ -5,8 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grim</title>
     <link rel="stylesheet" href="style.css">
+    <script src="grimm.js"></script>
 </head>
 <body>
-    <h1></h1>
+    <h1>Listado de wesen</h1>
+    <div class="grid">
+        <div class="listado">
+            <table>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Foto</th>
+                </tr>
+                <tbody id="tabla">
+                </tbody>
+              </table>
+            <script>
+                const tabla = document.getElementById('tabla');
+                listado.forEach(function(objeto, index) {
+                    const fila = document.createElement('tr');
+                        fila.addEventListener('click', function() {
+                        cargarDatos(index); 
+                    });
+                    const nombreCelda = document.createElement('td');
+                    nombreCelda.textContent = objeto.nombre;
+                    const fotoCelda = document.createElement('td');
+                    const imagen = document.createElement('img');
+                    imagen.src = objeto.urlImagen;
+                    imagen.alt = 'foto de un wesen';
+                    fotoCelda.appendChild(imagen);
+
+                    fila.appendChild(nombreCelda);
+                    fila.appendChild(fotoCelda);
+
+                    tabla.appendChild(fila);
+                });
+            </script>
+        </div>
+
+        <div class="formulario">
+            <form action="submit">
+                <label for="txtNombre">Nombre : </label>
+                <input type="text" name="txtNombre" id="txtNombre"><br><br>
+                <label for="txtUrlImagen">Imagen : </label>
+                <input type="text" name="txtUrlImagen" id="txtUrlImagen"><br><br>
+                <label for="comboTipo">Tipo : </label>
+                <select name="comboTipo" id="comboTipo"></select>
+                <script>
+                    var select = document.getElementById("comboTipo");
+                    for (var i = 0; i < arrayTipos.length; i++) {
+                        var opcion = document.createElement("option");
+                        opcion.value = arrayTipos[i];
+                        opcion.text = arrayTipos[i];
+                        select.appendChild(opcion);
+                    }
+                </script>
+                <label for="comboPeligrosidad">Peligrosidad : </label>
+                <select name="comboPeligrosidad" id="comboPeligrosidad"></select>
+                <script>
+                    var select = document.getElementById("comboPeligrosidad");
+                    for (var i = 0; i < arrayPeligrosidad.length; i++) {
+                        var opcion = document.createElement("option");
+                        opcion.value = arrayPeligrosidad[i];
+                        opcion.text = arrayPeligrosidad[i];
+                        select.appendChild(opcion);
+                    }
+                </script>
+                <br><br>
+                <label for="txtDescripcion">Descripcion : </label>
+                <textarea name="txtDescripcion" id="txtDescripcion"></textarea><br><br>
+                <br><br>
+                <label for="txtNotas">Notas : </label>
+                <textarea name="txtNotas" id="txtNotas"></textarea><br><br>
+                
+            </form>
+        </div>
+    </div>
 </body>
 </html>

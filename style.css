@@ -2,3 +2,38 @@ body{
     margin: 0;
     padding: 0;
 }
+h1{
+    text-align: center;
+    padding: 20px;
+    color: red;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.listado{
+    display: flex;
+    justify-content: center;
+}
+
+.listado table{
+    background-color: green;
+    border: 3px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.listado table th{
+    font-weight: bold;
+    font-size: large;
+}
+
+.listado table img{
+    width: 100px;
+}
+
+.formulario{
+    background-color: yellow;
+}
